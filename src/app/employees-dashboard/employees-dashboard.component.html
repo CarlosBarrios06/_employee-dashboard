@@ -1,0 +1,84 @@
+<nav class="navbar-navbar-light bg-primary">
+    <div class="container-fluid row" >
+        <div class="col-sm-10">
+            <img
+            width="40"
+            alt="logo"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+          /><span class="text-uppercase" style="color: white;">ngular CRUD</span>
+        </div>
+        <br>
+        <div class="col-sm-2" style="margin-top: 10px;">
+            <button type="button" class="btn btn-success" style="margin-bottom: 15px;" (click)="addEmployee(newEmployee)">Add Employee</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3" id="table">
+    <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Mobil Number</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.mobilNumber}}</td>
+            <td><button class="btn btn-info" (click)="editEmployee(employee, newEmployee)" >Edit</button><button class="btn btn-danger mx-3" (click)="deleteEmployee(employee)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #newEmployee>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left" id="sumar">{{isEditMode ? 'Update Employee' : 'Add employee'}}</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden" style="color: rgb(19, 16, 16);">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form class="formGroup" [formGroup]="employeeForm" (ngSubmit)="addUpdateEmployee()">
+              <div class="mb-3">
+                  <label for="firstName" class="form label">First Name</label>
+                  <input type="text" class="form-control" formControlName="firstName" id="firstName">
+              </div>
+              <div class="mb-3">
+                  <label for="lastName" class="form label">Last Name</label>
+                  <input type="text" class="form-control" formControlName="lastName" id="lastName">                  
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form label">Email</label>
+                <input type="text" class="form-control"  formControlName="email" id="email">
+                <div *ngIf="employeeForm.errors && employeeForm.dirty" class="alert alert-danger">
+                    <p *ngIf="employeeForm.hasError('required')">Por favor llene este campo</p>
+                </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Salary" class="form label">Salary</label>
+                    <input type="text" class="form-control" formControlName="salary"  id="Salary">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form label">Password</label>
+                    <input type="password" class="form-control"  formControlName="password" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="mobilNumber" class="form label">Mobil Number</label>
+                    <input type="text" class="form-control"  formControlName="mobilNumber"  id="MobilNumber">
+                </div>    
+                <div class="modal-footer">
+                    <div class="col-sm-12 col-sm-offset-2" style="float: left;">
+                        <button type="submit" style="width: 100%; display: inline-block;" class="btn btn-info mx+3" id="form-submit"  >{{isEditMode ? 'Update' : 'Add'}}</button>
+                    </div>
+                </div>
+          </form>
+      </div>      
+</ng-template>

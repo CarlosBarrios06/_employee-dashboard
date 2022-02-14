@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "firstName": "Elvin",
+      "lastName": "Espinoza",
+      "email": "carlos@gmail.com",
+      "salary": "5555555",
+      "password": "ngModel",
+      "mobilNumber": "87249038",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "firstName": "camilo",
+      "lastName": "Espinoza",
+      "email": "camilo@gmail.com",
+      "salary": "10000",
+      "password": "kukvf",
+      "mobilNumber": "38856383"
+    },
+    {
+      "firstName": "Carlos",
+      "lastName": "Morales",
+      "email": "charlie@gmail.com",
+      "salary": "80000",
+      "password": "kl",
+      "mobilNumber": "365265",
+      "id": 6
+    },
+    {
+      "firstName": "Randol",
+      "lastName": "Gomez",
+      "email": "gomez@gmail.com",
+      "salary": "1234",
+      "password": "1234",
+      "mobilNumber": "85858585",
+      "id": 7
+    },
+    {
+      "firstName": "Robert",
+      "lastName": "Lewandowski",
+      "email": "Robert@gmail.com",
+      "salary": "250000000",
+      "password": "1234",
+      "mobilNumber": "75757575",
+      "id": 8
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
